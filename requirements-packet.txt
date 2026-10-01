@@ -1,0 +1,47 @@
+# requirements-packet.txt — the PESC self-study packet, CPU only
+#
+# WHO THIS IS FOR. A reader of the PESC self-study packet, on arbitrary
+# hardware, with no lecturer to ask. Running on CPU is a HARD requirement here,
+# inherited from the dual-use rule of U0.T5 — not a convenience.
+#
+# WHAT IT COVERS. Exactly what `labs/lab-u0l5.ipynb`, `labs/jax-primer.ipynb`
+# and `common/odesolve.py` import, and nothing else. It is deliberately much
+# smaller than the lab environment (`environment.yml`): no mlflow, no
+# torchvision, no scikit-learn, no pandas. The packet does not train anything.
+#
+#     python -m venv .venv && source .venv/bin/activate
+#     pip install -r requirements-packet.txt
+#     jupyter notebook labs/jax-primer.ipynb
+#
+# THE TORCH LINE IS THE ONE THAT CAUSES TROUBLE. Plain `pip install torch`
+# pulls a CUDA build of about 2.5 GB, which a CPU-only reader neither wants nor
+# can use. The index URL below is the known-good CPU line.
+#
+# Windows and macOS: the same lines work; the CPU index serves wheels for all
+# three platforms. On Apple silicon, torch's CPU wheel is native arm64.
+#
+# Captured 2026-08-29 (U0.L5 build). Versions match `environment.yml` so the
+# packet and the lab produce the same numbers.
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# --- the solver module: torch only, CPU build ---
+# `common/odesolve.py` uses plain tensor operations and no GPU anything.
+torch==2.9.1
+
+# --- the JAX primer ---
+# jax[cpu] is the whole primer's requirement. There is no flax and no optax:
+# the primer names them once and teaches neither.
+jax[cpu]==0.10.2
+
+# --- the diffrax capstone (section 6 of the primer) ---
+# Pinned deliberately: diffrax's API moves between minor versions, and the
+# primer's cross-check asserts agreement with the hand-written RK4.
+diffrax==0.7.2
+
+# --- figures and arithmetic ---
+numpy==2.2.5
+matplotlib==3.10.7
+
+# --- to run the notebooks at all ---
+notebook==7.5.1

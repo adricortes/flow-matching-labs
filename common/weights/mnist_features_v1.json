@@ -1,0 +1,7 @@
+{
+  "sha256": "b8de935c5ffc3aa06ad26cd4657b71dcdef79bc4ce9272a11e26d11798157500",
+  "val_acc": 0.9922,
+  "seed": 0,
+  "epochs": 8,
+  "feature_dim": 128
+}

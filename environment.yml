@@ -1,0 +1,102 @@
+# environment.yml — the lab environment (conda env `torch-gpu`)
+#
+# WHAT THIS IS. The direct dependencies of the course's lab code, pinned to the
+# versions the committed figures and notebooks were produced with. It is what a
+# PGMAT student needs on a lab machine, and what reproduces every number in
+# scripts/python/_outputs/.
+#
+# WHAT THIS IS NOT. It is not a full transitive freeze. The live environment
+# holds ~490 packages; a `conda env export` of all of them pins build strings
+# and the linux-64 platform, which does not install anywhere else and is
+# unreadable besides. For a bit-exact rebuild of THIS machine, run
+#
+#     conda env export -n torch-gpu --no-builds > environment-full.yml
+#
+# and keep that beside the run it describes. This file is the portable,
+# human-readable contract; that one is the forensic record.
+#
+# CPU-ONLY READERS WANT A DIFFERENT FILE. torch here is a CUDA 12.8 build. The
+# PESC self-study packet has a hard CPU requirement, and its dependencies are
+# in `requirements-packet.txt`. The Quarto toolchain is a SEPARATE environment
+# — see `environment-quarto.yml`.
+#
+#   conda env create -f environment.yml
+#   conda activate torch-gpu
+#
+# Captured 2026-08-29 (U0.L5 build), on wsl_ubuntu.
+
+name: torch-gpu
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11.11
+  - pip
+
+  - pip:
+      # --- deep learning: CUDA 12.8 build, from the PyTorch index ---
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch==2.9.1+cu128
+      - torchvision==0.24.1
+
+      # --- scientific stack ---
+      # numpy is pinned to 2.2.5, the version that IMPORTS. A conda
+      # `numpy-base` 2.0.1 is also present in the live env and its metadata
+      # shadows the pip install, so `importlib.metadata.version("numpy")`
+      # reports 2.0.1 while `numpy.__version__` reports 2.2.5. Measured
+      # 2026-08-29. Pin what runs, not what the metadata claims — this is
+      # precisely the discrepancy that makes a "reproducible" run irreproducible.
+      - numpy==2.2.5
+      - scipy==1.15.3
+      - matplotlib==3.10.7
+      - pandas==2.2.3
+      - scikit-learn==1.7.1
+      - pillow==11.2.1
+
+      # --- JAX, CPU build (added at the U0.L5 build) ---
+      # The course's JAX moments are illustrative and run on CPU by design;
+      # the packet's hard CPU requirement makes a GPU jaxlib a liability here,
+      # not a benefit. Installing a CUDA jaxlib alongside the CUDA torch above
+      # is possible but unnecessary for anything the course does.
+      - jax==0.10.2
+      - jaxlib==0.10.2
+      - ml_dtypes==0.6.0
+
+      # --- diffrax and its JAX ecosystem (U0.L5, U2.L1) ---
+      # Pinned deliberately: diffrax's API moves between minor versions, and
+      # U0.L5's cross-check asserts an agreement to 4.1e-13 against it.
+      - diffrax==0.7.2
+      - equinox==0.13.8
+      - lineax==0.1.1
+      - optimistix==0.1.0
+
+      # --- experiment tracking (U0.L2 onward) ---
+      # 3.15.x deprecates the mlruns/ file store; the course standard is the
+      # sqlite backend, `sqlite:///mlflow.db`.
+      - mlflow==3.15.1
+
+      # --- normalizing-flow reference library (U1.L1 onward) ---
+      # Zuko is a REFERENCE implementation and cross-check, never a substitute
+      # for the from-scratch pass (L1 section 2). Pinned because U1.L1's
+      # source-reading worksheet carries file:line anchors generated from this
+      # exact version by scripts/python/make_lab_u1l1.py, which refuses to run
+      # against any other.
+      - zuko==1.5.0
+
+      # --- Neural ODE solver library (U2.L1 onward) ---
+      # torchdiffeq is a REFERENCE implementation, like Zuko. Pinned because
+      # U2.L1 quotes behaviour read from this exact source: `rk4` is the
+      # 3/8-rule tableau, the adaptive error norm is an RMS over the whole
+      # state, and a zero field starts at h = 1e-6 (44 calls for dopri5).
+      # Installed since U0 but never pinned before the U2.L1 build.
+      - torchdiffeq==0.2.5
+      # psutil: U2.L1's CPU fallback for the memory measurement (process RSS).
+      # Already present as a Jupyter dependency; pinned because the lab calls it.
+      - psutil==7.0.0
+
+      # --- notebooks ---
+      - notebook==7.5.1
+      - ipykernel==7.1.0
+      - nbconvert==7.16.6

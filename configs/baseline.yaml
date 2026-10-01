@@ -1,0 +1,7 @@
+run_name: U0L2-baseline-s0
+seed: 0
+epochs: 8
+data:  {dataset: cifar10, root: ./data, normalize: true, batch_size: 256}
+model: {arch: resnet9, norm: batch}   # classifier => BN allowed (U0.T2 law)
+opt:   {name: adamw, lr: 3.0e-4, betas: [0.9, 0.999], weight_decay: 0.01}
+sched: {name: warmup_cosine, warmup_frac: 0.03}

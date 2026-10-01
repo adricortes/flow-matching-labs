@@ -1,0 +1,37 @@
+{
+  "config": {
+    "levels": 1,
+    "steps": 16,
+    "hidden": 96,
+    "s_cap": 2.0
+  },
+  "train": {
+    "name": "u1l2-onelevel",
+    "levels": 1,
+    "steps": 16,
+    "hidden": 96,
+    "s_cap": 2.0,
+    "n_train": 55000,
+    "n_val": 5000,
+    "split_seed": 0,
+    "batch_size": 128,
+    "epochs": 30,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_frac": 0.05,
+    "seed": 0,
+    "lam": 1e-06
+  },
+  "seed": 0,
+  "git_commit": "600ab03882eb3201aa1ed7e61704b06eaadc986a",
+  "git_dirty": true,
+  "n_params": 233536,
+  "device": "cuda",
+  "seconds": 808.7246644989937,
+  "selection": "last epoch (no test-set selection; val curve recorded)",
+  "sha256": "e58d6817ad8075da1d64e2738462a682154326ea4f89e2c552374b81979d8591",
+  "built_by": "scripts/python/fig_u1_l2_multiscale.py (stage train)",
+  "loads_into": "common.multiscale_flow.MultiscaleFlow((1, 28, 28), levels=1, steps=16, hidden=96, s_cap=2.0)",
+  "val_bpd_deq_first": 2.3427301156676883,
+  "val_bpd_deq_last": 1.2958183869927842
+}

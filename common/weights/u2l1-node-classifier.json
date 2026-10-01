@@ -1,0 +1,25 @@
+{
+  "sha256": "c9527e8b5e712cc32277c3afc97c3d10dd6fef88d47471cda9e637ae92947c9b",
+  "built_by": "scripts/python/fig_u2_l1_instruments.py (stage train)",
+  "loads_into": "NODEClassifier(hidden=32) of the U2.L1 notebook",
+  "data": "two_moons(512, 0) train / two_moons(2048, 1) test; label = row >= n // 2",
+  "config": {
+    "hidden": 32,
+    "n_train": 512,
+    "n_test": 2048,
+    "seed_train": 0,
+    "seed_test": 1,
+    "steps": 300,
+    "lr": 0.003,
+    "weight_decay": 0.01,
+    "warmup_frac": 0.03,
+    "method": "dopri5",
+    "rtol": 1e-07,
+    "atol": 1e-09
+  },
+  "seed": 0,
+  "n_params": 1256,
+  "test_acc_dopri5_defaults": 1.0,
+  "test_nfe_dopri5_defaults": 116,
+  "purpose": "rescue checkpoint for Blocks 2-4 of the U2.L1 notebook"
+}

@@ -1,0 +1,27 @@
+{
+  "sha256": "55899920248ebb6681e8a83bb12352ef1d06111b7afdcf2ca8277268c5ca3cf9",
+  "built_by": "scripts/python/fig_u1_l1_coupling_flows.py (stage moons)",
+  "loads_into": "common.coupling.Flow.realnvp(d=2, n_layers=6, hidden=(64, 64), s_cap=2.0)",
+  "data": "two_moons(4096, 0) train / two_moons(1024, 1) val",
+  "config": {
+    "n_layers": 6,
+    "hidden": [
+      64,
+      64
+    ],
+    "s_cap": 2.0,
+    "n_train": 4096,
+    "n_val": 1024,
+    "seed_train": 0,
+    "seed_val": 1,
+    "batch_size": 256,
+    "epochs": 500,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_frac": 0.05
+  },
+  "n_params": 26508,
+  "val_nll_last": 2.0988,
+  "val_nll_reloaded": 2.0988,
+  "purpose": "Manim memo U1-L1 Proposal 1 precompute; the notebook trains its own copy"
+}
