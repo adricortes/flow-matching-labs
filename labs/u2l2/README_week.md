@@ -53,9 +53,9 @@ Set `TIER`, run the settings cell, then run the training cell of that dataset.
 The notebook with its outputs; `pain_evidence/two-moons/` and `pain_evidence/checkerboard/`;
 `mlflow_export/`; your written answers (two to four sentences for each of the prompts of Parts 3, 4 and 5); and, if you ran
 Part 6, `rnode_overlay.png`.
-Send these items as one ZIP file to the instructor's institutional e-mail. Do not add `mlflow.db`, `runs/` or
-the rest of your clone. Use the subject `PS2.5 <your name>`. The pinned message of the thread states the address
-and the due date. Keep the folders in your clone.
+Send these items as one ZIP file to the instructor's institutional e-mail, <adricortes@cos.ufrj.br>. Do not add `mlflow.db`, `runs/` or
+the rest of your clone. Use the subject `PS2.5 <your name>`. The pinned message of the thread states
+the due date. Keep the folders in your clone.
 U3.L1 reads the two `pain_evidence/` directories and `pain_evidence/pair.json` again. A tier applies to one dataset at a time.
 
 `pain_evidence/`, `mlflow_export/`, `runs/` and `rnode_overlay.png` are written in the repository root, the parent
