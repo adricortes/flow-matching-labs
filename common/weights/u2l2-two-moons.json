@@ -1,0 +1,75 @@
+{
+  "sha256": "4dd5f5237aef82c09d857e7020b17e95427888eb5de6158168ba48b55c914e53",
+  "built_by": "the reference script of the course, stage train (not shipped)",
+  "loads_into": "Field(hidden=64, depth=3) of the U2.L2 notebook",
+  "data": "two-moons: train gen(8192, 0), test gen(2048, 1)",
+  "config": {
+    "budget_version": "U2L2-B1",
+    "datasets": [
+      "two-moons",
+      "checkerboard"
+    ],
+    "seed": 2026,
+    "data": {
+      "n_train": 8192,
+      "seed_train": 0,
+      "n_test": 2048,
+      "seed_test": 1
+    },
+    "model": {
+      "hidden": 64,
+      "depth": 3,
+      "activation": "tanh",
+      "zero_init_head": true
+    },
+    "train": {
+      "batch": 256,
+      "iters": 3000,
+      "log_every": 10
+    },
+    "opt": {
+      "name": "adamw",
+      "lr": 0.0003,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.01
+    },
+    "sched": {
+      "name": "warmup_cosine",
+      "warmup_frac": 0.03
+    },
+    "solver": {
+      "method": "dopri5",
+      "rtol": 1e-05,
+      "atol": 1e-07,
+      "adjoint": true
+    },
+    "hutchinson": {
+      "distribution": "rademacher",
+      "probes_per_example": 1
+    },
+    "tolerance_grid": {
+      "rtol": [
+        0.01,
+        0.001,
+        0.0001,
+        1e-05,
+        1e-06
+      ],
+      "atol_factor": 0.01,
+      "eps_nll": 0.01
+    },
+    "rnode": {
+      "kinetic_weight": 0.01,
+      "jacobian_weight": 0.01
+    },
+    "fallback_lr": 0.0001
+  },
+  "seed": 2026,
+  "n_params": 8706,
+  "budget_version": "U2L2-B1",
+  "test_nll_rtol1e-6_exact_divergence": 2.1947200298309326,
+  "purpose": "rescue checkpoint, tier 3 of the U2.L2 rescue ladder (Parts 2 and 5 load it)"
+}

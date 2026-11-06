@@ -92,6 +92,9 @@ dependencies:
       # state, and a zero field starts at h = 1e-6 (44 calls for dopri5).
       # Installed since U0 but never pinned before the U2.L1 build.
       - torchdiffeq==0.2.5
+      # pyyaml: U2.L2 reads its budget from configs/u2l2-*.yaml. It arrived with mlflow;
+      # pinned because the lab imports it directly.
+      - pyyaml==6.0.2
       # psutil: U2.L1's CPU fallback for the memory measurement (process RSS).
       # Already present as a Jupyter dependency; pinned because the lab calls it.
       - psutil==7.0.0

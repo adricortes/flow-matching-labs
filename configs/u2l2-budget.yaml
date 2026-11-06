@@ -1,0 +1,22 @@
+# U2.L2 frozen budget. U3.L1 inherits every field below,
+# so a change here is a breaking change: it needs a dated note in painplots.py.
+# The notebook reads this file and writes the RESOLVED
+# config into every run directory (the hash of that config goes into meta.json).
+# Fields the code READS: budget_version, datasets, seed, data, model.hidden/depth/zero_init_head, train.batch/iters,
+# opt, sched, solver.rtol/atol, tolerance_grid, rnode, fallback_lr. Fields it only RECORDS (and asserts): solver.method,
+# solver.adjoint, model.activation, train.log_every, hutchinson. The hash in meta.json covers all of them.
+budget_version: U2L2-B1
+datasets: [two-moons, checkerboard]
+seed: 2026                       # global seed; the Hutchinson probes have their own stream (seed + 1)
+data:  {n_train: 8192, seed_train: 0, n_test: 2048, seed_test: 1}
+model: {hidden: 64, depth: 3, activation: tanh, zero_init_head: true}   # MLP 3x64, time-concatenated
+train: {batch: 256, iters: 3000, log_every: 10}
+opt:   {name: adamw, lr: 3.0e-4, betas: [0.9, 0.999], weight_decay: 0.01}   # the U0.T2 defaults, unchanged
+sched: {name: warmup_cosine, warmup_frac: 0.03}
+solver: {method: dopri5, rtol: 1.0e-5, atol: 1.0e-7, adjoint: true}
+hutchinson: {distribution: rademacher, probes_per_example: 1}   # fresh once per minibatch solve, then fixed
+tolerance_grid: {rtol: [1.0e-2, 1.0e-3, 1.0e-4, 1.0e-5, 1.0e-6], atol_factor: 1.0e-2, eps_nll: 0.01}
+rnode: {kinetic_weight: 0.01, jacobian_weight: 0.01}            # used only when regularize=True (Part 6)
+# Tier 1 of the rescue ladder (training diverges or reaches NaN): restart with this
+# learning rate. Measured in the reference study: see the notes, section "If a run fails".
+fallback_lr: 1.0e-4

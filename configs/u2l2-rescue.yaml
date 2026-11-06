@@ -1,0 +1,17 @@
+# U2.L2 rescue budget (rescue tier 2): use it when one run of the frozen
+# budget needs more than 45 minutes on your computer. Same contract fields, its own
+# budget_version. The evidence stays valid; U3.L1 matches on budget_version.
+# The code reads and records the same fields as in configs/u2l2-budget.yaml.
+budget_version: U2L2-B1R
+datasets: [two-moons, checkerboard]
+seed: 2026
+data:  {n_train: 8192, seed_train: 0, n_test: 2048, seed_test: 1}
+model: {hidden: 32, depth: 3, activation: tanh, zero_init_head: true}   # MLP 3x32
+train: {batch: 256, iters: 1500, log_every: 10}
+opt:   {name: adamw, lr: 3.0e-4, betas: [0.9, 0.999], weight_decay: 0.01}
+sched: {name: warmup_cosine, warmup_frac: 0.03}
+solver: {method: dopri5, rtol: 1.0e-5, atol: 1.0e-7, adjoint: true}
+hutchinson: {distribution: rademacher, probes_per_example: 1}
+tolerance_grid: {rtol: [1.0e-2, 1.0e-3, 1.0e-4, 1.0e-5, 1.0e-6], atol_factor: 1.0e-2, eps_nll: 0.01}
+rnode: {kinetic_weight: 0.01, jacobian_weight: 0.01}
+fallback_lr: 1.0e-4

@@ -1,0 +1,51 @@
+budget_version: U2L2-B1
+data:
+  n_test: 2048
+  n_train: 8192
+  seed_test: 1
+  seed_train: 0
+dataset: checkerboard
+datasets:
+- two-moons
+- checkerboard
+fallback_lr: 0.0001
+hutchinson:
+  distribution: rademacher
+  probes_per_example: 1
+model:
+  activation: tanh
+  depth: 3
+  hidden: 64
+  zero_init_head: true
+opt:
+  betas:
+  - 0.9
+  - 0.999
+  lr: 0.0003
+  name: adamw
+  weight_decay: 0.01
+rnode:
+  jacobian_weight: 0.01
+  kinetic_weight: 0.01
+sched:
+  name: warmup_cosine
+  warmup_frac: 0.03
+seed: 2026
+solver:
+  adjoint: true
+  atol: 1.0e-07
+  method: dopri5
+  rtol: 1.0e-05
+tolerance_grid:
+  atol_factor: 0.01
+  eps_nll: 0.01
+  rtol:
+  - 0.01
+  - 0.001
+  - 0.0001
+  - 1.0e-05
+  - 1.0e-06
+train:
+  batch: 256
+  iters: 3000
+  log_every: 10
