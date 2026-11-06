@@ -144,6 +144,11 @@ def machine_id(reference: bool = False) -> str:
     return (REFERENCE_PREFIX if reference else "") + digest
 
 
+def hardware_id() -> str:
+    """The machine id without the host name: a network that renames the computer does not change it."""
+    return hashlib.sha256(f"{_SALT}|{_hardware_token()}".encode()).hexdigest()[:12]
+
+
 def device_name(device: str = "cpu") -> str:
     """The name of the device the run USED: the accelerator for "cuda", else the CPU model.
 
@@ -570,6 +575,7 @@ def _self_test() -> None:
         good = tmp / "two-moons"
         pair = mint_pair_id(tmp)
         assert mint_pair_id(tmp) == pair, "the pair id is stable on one machine"
+        assert hardware_id() == hardware_id() and hardware_id() != machine_id(), "the hardware id leaves the host name out"
         pain_wallclock(log, good)
         pain_nfe_growth(log, good)
         pain_tolerance([{"rtol": r, "atol": r * 1e-2, "nfe_eval": 40 + i, "nll_test": 2.2, "wallclock_eval_s": 1.0}

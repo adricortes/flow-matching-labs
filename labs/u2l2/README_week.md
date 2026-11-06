@@ -2,7 +2,9 @@
 
 This folder belongs to the asynchronous week of **U2.L2** (FFJORD on 2D). The notebook is
 `labs/lab-u2l2.ipynb`. Clone the public repository (<https://github.com/adricortes/flow-matching-labs>) and open the
-notebook from `labs/`: the file alone does not have `common/` and `configs/`. The reasoning behind every part is in the lecture notes of the course site
+notebook from `labs/`: the file alone does not have `common/` and `configs/`. On a computer with a GPU, use `environment.yml`. With no GPU, install `requirements-packet.txt` and then the
+`mlflow`, `torchdiffeq` and `pyyaml` versions that `environment.yml` pins.
+The reasoning behind every part is in the lecture notes of the course site
 (<https://adricortes.github.io/flow-matching-lectures/U2/U2-L2-notes.html>).
 
 ## Pacing
