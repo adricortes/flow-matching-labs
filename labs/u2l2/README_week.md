@@ -12,7 +12,7 @@ The reasoning behind every part is in the lecture notes of the course site
 Estimated active time: 2.5 to 3.5 hours, plus training time that needs nothing from you (two runs of
 about 396 s (two-moons) and 365 s (checkerboard) on the reference computer, one CPU thread).
 
-1. Watch the proof clinic first. The release message of the week and the pinned message of the thread link the recording and its timestamped index.
+1. Read the proof clinic first. It is the written page U2.A: <https://adricortes.github.io/flow-matching-lectures/U2/U2-A-notes.html>
 2. Parts 1 to 3 in the first half of this week. Part 1 is the longest.
 3. Parts 4 to 7 in the second half. Start the checkerboard (Part 5) only after the tolerance table of
    two-moons (Part 4) has printed; write the prompt cells of Parts 3 and 4 while the checkerboard trains.
@@ -21,7 +21,7 @@ The dates of this week are on the calendar of the course site (<https://adricort
 
 ## Where to ask
 
-One thread for the week. Tag a question `#lab` (this notebook), `#clinic` (the recording) or `#blocked`
+One thread for the week. Tag a question `#lab` (this notebook), `#clinic` (the proof clinic) or `#blocked`
 (you cannot go on; answered within a day). The thread is in the channel that the course uses for announcements.
 Its pinned message holds the links. Two check-in messages appear in the thread: one after the first half of the
 week, one before the due date.
