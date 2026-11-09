@@ -1,0 +1,9 @@
+{
+  "sha256": "3471f82d6f49ec5ccb6531c147ca88bf47c5748626c2a655921960efb9f41eb3",
+  "built_by": "scripts/python/fig_u3_l1_payoff.py, stage train",
+  "loads_into": "make_field(cfg) of the U3.L1 notebook (the U2.L2 Field class, MLP 3x64)",
+  "budget_version": "U2L2-B1",
+  "seed": 2026,
+  "dataset": "checkerboard",
+  "purpose": "reference CFM field: notes figures and rescue of the sampling and payoff parts"
+}

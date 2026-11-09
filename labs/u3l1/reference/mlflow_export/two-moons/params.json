@@ -1,0 +1,8 @@
+{
+  "budget_version": "U2L2-B1",
+  "config_hash": "7397fbf29429",
+  "hidden": "64",
+  "iters": "3000",
+  "lr": "0.0003",
+  "seed": "2026"
+}

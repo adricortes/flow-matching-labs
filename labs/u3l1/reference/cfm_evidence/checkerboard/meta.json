@@ -1,0 +1,15 @@
+{
+  "session_id": "U3.L1",
+  "dataset": "checkerboard",
+  "seed": 2026,
+  "config_hash": "3aa821da7777",
+  "machine_id": "ref-b0dca79c6ae1",
+  "device_name": "Intel(R) Core(TM) Ultra 9 185H",
+  "evidence_origin": "reference_pair",
+  "pair_id": "ref-U2L2-B1",
+  "torch_version": "2.9.1+cu128",
+  "timestamp": "2026-11-09T15:26:45Z",
+  "budget_version": "U2L2-B1",
+  "painplots_version": "1.1",
+  "divergence_mode": "exact"
+}

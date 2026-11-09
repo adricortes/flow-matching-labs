@@ -92,6 +92,13 @@ dependencies:
       # state, and a zero field starts at h = 1e-6 (44 calls for dopri5).
       # Installed since U0 but never pinned before the U2.L1 build.
       - torchdiffeq==0.2.5
+      # torchcfm 1.0.7 and POT 0.9.7.post1: U3.L1's cross-check of the from-scratch CFM loop (a
+      # REFERENCE, not a substitute, L1 section 2). NOT listed here on purpose: this pip section
+      # cannot pass --no-deps, and torchcfm's declared dependencies pull pytorch-lightning,
+      # torchdyn, torchsde and torchcde. The `ConditionalFlowMatcher` import needs only torch,
+      # numpy and POT (checked 2026-11-09). After creating this environment, run:
+      #     pip install --no-deps torchcfm==1.0.7 POT==0.9.7.post1
+      # The U3.L1 notebook prints the same command if the import fails.
       # pyyaml: U2.L2 reads its budget from configs/u2l2-*.yaml. It arrived with mlflow;
       # pinned because the lab imports it directly.
       - pyyaml==6.0.2

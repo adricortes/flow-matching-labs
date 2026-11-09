@@ -1,0 +1,9 @@
+{
+  "dataset": "checkerboard",
+  "evidence_origin": "reference_pair",
+  "hardware": "cpu",
+  "machine_id": "ref-b0dca79c6ae1",
+  "mlflow.runName": "u3l1-checkerboard-reference",
+  "pair_id": "ref-U2L2-B1",
+  "session": "U3.L1"
+}

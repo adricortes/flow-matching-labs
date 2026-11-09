@@ -1,0 +1,9 @@
+{
+  "sha256": "0d97d0bf61a3eed3da46aec57759f4ef8705e4c017cefc058bcf4660d311424a",
+  "built_by": "scripts/python/fig_u3_l1_payoff.py, stage train",
+  "loads_into": "make_field(cfg) of the U3.L1 notebook (the U2.L2 Field class, MLP 3x64)",
+  "budget_version": "U2L2-B1",
+  "seed": 2026,
+  "dataset": "two-moons",
+  "purpose": "reference CFM field: notes figures and rescue of the sampling and payoff parts"
+}
