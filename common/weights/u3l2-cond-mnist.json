@@ -1,0 +1,51 @@
+{
+  "name": "u3l2-cond-mnist",
+  "session": "U3.L2",
+  "config": {
+    "session": "U3.L2",
+    "seed": 0,
+    "data": {
+      "name": "mnist",
+      "split": "train[perm(seed 0)][:50000]",
+      "val": "train[perm][50000:]",
+      "scale": "[-1, 1]"
+    },
+    "grid": {
+      "n_steps": 1000,
+      "beta_min": 0.0001,
+      "beta_max": 0.02,
+      "form": "ddpm-linear"
+    },
+    "model": {
+      "base_ch": 32,
+      "ch_mults": [
+        1,
+        2,
+        2
+      ],
+      "attn_resolutions": [
+        7
+      ],
+      "num_classes": 10
+    },
+    "train": {
+      "iters": 20000,
+      "batch": 128,
+      "lr": 0.001,
+      "warmup": 500,
+      "weight_decay": 0.0,
+      "loss_mode": "ddpm_simple",
+      "cfg_dropout": 0.1
+    }
+  },
+  "config_hash": "4479280a11bd",
+  "seed": 0,
+  "weights_sha256": "8550c7e8531df00cb5f18a7b9f328d48f668988cecd3c418b155d1af46f66358",
+  "wall_s": 1336.934959870996,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "torch": "2.9.1+cu128",
+  "git_commit": "0d0a482be9381bf3e1eece891a7c2b1180f8a45d",
+  "git_dirty": true,
+  "final_loss": 15.613134136199951,
+  "selection": "final iterate (no checkpoint selection)"
+}

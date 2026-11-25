@@ -1,0 +1,8 @@
+{
+  "config_hash": "4479280a11bd",
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "loss_mode": "ddpm_simple",
+  "mlflow.runName": "u3l2-cond-mnist-seed0",
+  "seed": "0",
+  "session": "U3.L2"
+}

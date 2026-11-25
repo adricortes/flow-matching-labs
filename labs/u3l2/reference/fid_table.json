@@ -1,0 +1,202 @@
+{
+  "n": 10000,
+  "split": "test",
+  "extractor": "mnist-cnn-v1",
+  "rows": {
+    "ode-euler-5": {
+      "sampler": "ode",
+      "method": "euler",
+      "n_steps": 5,
+      "nfe_per_solve": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "model_forwards": 5,
+      "sampler_steps": 0,
+      "wall_s": 8.759039623982972,
+      "fid": 238.5938817908178,
+      "nfe": 5,
+      "nfe_min": 5,
+      "nfe_max": 5
+    },
+    "ode-euler-10": {
+      "sampler": "ode",
+      "method": "euler",
+      "n_steps": 10,
+      "nfe_per_solve": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "model_forwards": 10,
+      "sampler_steps": 0,
+      "wall_s": 17.248255638987757,
+      "fid": 13.658187180178698,
+      "nfe": 10,
+      "nfe_min": 10,
+      "nfe_max": 10
+    },
+    "ode-euler-20": {
+      "sampler": "ode",
+      "method": "euler",
+      "n_steps": 20,
+      "nfe_per_solve": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "model_forwards": 20,
+      "sampler_steps": 0,
+      "wall_s": 34.57398384899716,
+      "fid": 6.159876446958748,
+      "nfe": 20,
+      "nfe_min": 20,
+      "nfe_max": 20
+    },
+    "ode-euler-50": {
+      "sampler": "ode",
+      "method": "euler",
+      "n_steps": 50,
+      "nfe_per_solve": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "model_forwards": 50,
+      "sampler_steps": 0,
+      "wall_s": 87.54218960300204,
+      "fid": 4.407141581003861,
+      "nfe": 50,
+      "nfe_min": 50,
+      "nfe_max": 50
+    },
+    "ode-adaptive_heun": {
+      "sampler": "ode",
+      "method": "adaptive_heun",
+      "rtol": 0.001,
+      "atol": 0.001,
+      "nfe_per_solve": [
+        110,
+        110,
+        108,
+        110,
+        110,
+        108,
+        114,
+        110,
+        108,
+        110
+      ],
+      "model_forwards": 110,
+      "sampler_steps": 0,
+      "wall_s": 194.95559655100806,
+      "fid": 3.803700445769413,
+      "nfe": 110,
+      "nfe_min": 108,
+      "nfe_max": 114
+    },
+    "ddim-5": {
+      "sampler": "ddim",
+      "n_steps": 5,
+      "nfe_per_solve": [],
+      "model_forwards": 5,
+      "sampler_steps": 5,
+      "wall_s": 9.034149140003137,
+      "fid": 25.67763427258606
+    },
+    "ddim-10": {
+      "sampler": "ddim",
+      "n_steps": 10,
+      "nfe_per_solve": [],
+      "model_forwards": 10,
+      "sampler_steps": 10,
+      "wall_s": 17.6926251979894,
+      "fid": 6.489509725753511
+    },
+    "ddim-20": {
+      "sampler": "ddim",
+      "n_steps": 20,
+      "nfe_per_solve": [],
+      "model_forwards": 20,
+      "sampler_steps": 20,
+      "wall_s": 34.991918006999185,
+      "fid": 3.857368278048071
+    },
+    "ddim-50": {
+      "sampler": "ddim",
+      "n_steps": 50,
+      "nfe_per_solve": [],
+      "model_forwards": 50,
+      "sampler_steps": 50,
+      "wall_s": 87.73921014997177,
+      "fid": 3.3241978143295783
+    },
+    "ancestral-10": {
+      "sampler": "ancestral",
+      "n_steps": 10,
+      "nfe_per_solve": [],
+      "model_forwards": 10,
+      "sampler_steps": 10,
+      "wall_s": 17.510638901992934,
+      "fid": 8.374469981413084
+    },
+    "ancestral-20": {
+      "sampler": "ancestral",
+      "n_steps": 20,
+      "nfe_per_solve": [],
+      "model_forwards": 20,
+      "sampler_steps": 20,
+      "wall_s": 35.18117187102325,
+      "fid": 4.6564576383773835
+    },
+    "ancestral-50": {
+      "sampler": "ancestral",
+      "n_steps": 50,
+      "nfe_per_solve": [],
+      "model_forwards": 50,
+      "sampler_steps": 50,
+      "wall_s": 87.73686448097578,
+      "fid": 3.275364880104096
+    },
+    "ancestral-1000": {
+      "sampler": "ancestral",
+      "n_steps": 1000,
+      "nfe_per_solve": [],
+      "model_forwards": 1000,
+      "sampler_steps": 1000,
+      "wall_s": 1746.5987289390177,
+      "fid": 2.989899683454845
+    }
+  },
+  "checkpoint": "u3l2-cond-mnist",
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU"
+}

@@ -99,6 +99,12 @@ dependencies:
       # numpy and POT (checked 2026-11-09). After creating this environment, run:
       #     pip install --no-deps torchcfm==1.0.7 POT==0.9.7.post1
       # The U3.L1 notebook prints the same command if the import fails.
+      # azula 0.11.1 (+ einops, tqdm): U3.L2's cross-check of the DDPM and DDIM steps (a REFERENCE).
+      # NOT listed here: azula's declared dependencies include gdown, which nothing imports. Its
+      # import does need einops (azula/nn/attention.py) and tqdm (azula/sample.py), checked
+      # 2026-11-24 with each of them hidden. After creating this environment, run:
+      #     pip install --no-deps azula==0.11.1 einops==0.8.2 tqdm==4.67.1
+      # The U3.L2 notebook prints the same command if the import fails.
       # pyyaml: U2.L2 reads its budget from configs/u2l2-*.yaml. It arrived with mlflow;
       # pinned because the lab imports it directly.
       - pyyaml==6.0.2
